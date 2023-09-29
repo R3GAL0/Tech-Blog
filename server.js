@@ -7,6 +7,8 @@ const helpers = require('./utils/helpers');
 // const routes = require('./routes');
 // import sequelize connection
 const sequalize = require('./config/connection')
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 
 const sess = {
   secret: 'Super secret secret',
@@ -19,7 +21,7 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
+    db: sequalize
   })
 };
 

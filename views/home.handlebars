@@ -1,0 +1,15 @@
+<div>
+    {{#each blogs}}
+    <div class="card">
+        <h2>
+            <a href="/blog/{{id}}">{{this.title}}</a>
+        </h2>
+        <div>
+            <p>created by: {{User.name}}</p>
+        </div>
+        <div>
+            {{body}}
+        </div>
+    </div>
+    {{/each}}
+</div>
