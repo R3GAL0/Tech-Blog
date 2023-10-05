@@ -9,8 +9,9 @@ router.get('/', async (req, res) => {
     console.log(blogData)
     // blog data has values
     const blogs = blogData.map((blog) => {
-        blog.get({plain:true})
+        return blog.get({plain:true})
     });
+    console.log(blogs)
     // blogs is undefined
     res.render('home', {
         blogs

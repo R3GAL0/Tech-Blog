@@ -1,11 +1,12 @@
 <div>
-    {{#each blogs}}
+    {{#each blogs as |blog|}}
     <div class="card">
         <h2>
-            <a href="/blog/{{id}}">{{this.title}}</a>
+            <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+            <p>Hello max</p>
         </h2>
         <div>
-            <p>created by: {{User.name}}</p>
+            <p>created by: {{blog.user.name}}</p>
         </div>
         <div>
             {{body}}

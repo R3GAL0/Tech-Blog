@@ -42,6 +42,8 @@ router.post('/login', async (req, res) => {
   
       // Verify the posted password with the password store in the database
       // check password malfunction. It doesnt return true for valid pw
+      // if user email is seeded email use basic check
+      // console.log(req.body.password)
       let validPassword = userData.checkPassword(req.body.password);
       
       console.log(validPassword);

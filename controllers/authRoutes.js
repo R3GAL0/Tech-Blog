@@ -10,7 +10,9 @@ router.get('/', withAuth, async (req, res) => {
                 user_id: req.session.user_id,
             }
         })
-        const blogs = blogData.map((blog) => blog.get({ plain: true }))
+        const blogs = blogData.map((blog) => {
+            return blog.get({ plain: true })
+        });
         res.render('homeAdmin', {
             layout: 'dashboard', 
             blogs
@@ -19,5 +21,7 @@ router.get('/', withAuth, async (req, res) => {
         res.redirect('/login');
     }
 })
+
+
 
 module.exports = router;

@@ -1,9 +1,10 @@
 <div>
-    {{#each blogs}}
-    <a href="/dashboard/edit/{{id}}">
+    {{#each blogs as |blog|}}
+    <a href="/dashboard/edit/{{blog.id}}">
     <span>edit </span>
-    <span>{{title}}</span>
+    <span>{{blog.title}}</span>
     </a>
     {{/each}}
+    <h1> This is home admin</h1>
     
 </div>
