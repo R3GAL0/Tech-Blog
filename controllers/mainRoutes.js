@@ -6,13 +6,11 @@ router.get('/', async (req, res) => {
     const blogData = await Blog.findAll({
         include: [User]
     })
-    console.log(blogData)
-    // blog data has values
+    // console.log(blogData)
     const blogs = blogData.map((blog) => {
         return blog.get({plain:true})
     });
-    console.log(blogs)
-    // blogs is undefined
+    // console.log(blogs)
     res.render('home', {
         blogs
     })

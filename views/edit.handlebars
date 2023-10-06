@@ -1,0 +1,13 @@
+<h1>Edit view</h1>
+
+<div id="editContainer">
+    <form id="editBlogForm">
+        <input type="hidden" id="blogId" value="{{blog.id}}">
+        <input type="text" placeholder="title" id="titleInput" value="{{blog.title}}">
+        <textarea id="textInput">{{blog.text}}</textarea>
+
+        <button type="submit">Confirm</button>
+        <button type="button" id="deleteBlog">Delete</button>
+    </form>
+</div>
+<script src="/js/edit.js"></script>

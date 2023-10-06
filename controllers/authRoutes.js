@@ -22,6 +22,28 @@ router.get('/', withAuth, async (req, res) => {
     }
 })
 
+router.get('/edit/:id', withAuth, async (req, res) => {
+    try {
+        const blogData = await Blog.findByPk(req.params.id);
+        if (blogData) {
+            const blog = blogData.get({plain: true});
+            res.render('edit', {
+                layout: 'dashboard',
+                blog
+            });
+        } else {
+            res.status(404).end();
+        }
+    } catch (err) {
+        res.redirect('/login');
+    }
+});
+
+router.get('/create', withAuth, (req, res) =>  {
+    res.render('newBlog', {
+        layout: 'dashboard'
+    })
+})
 
 
 module.exports = router;
