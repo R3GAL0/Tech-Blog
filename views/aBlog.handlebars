@@ -10,6 +10,7 @@
         {{body}}
     </div>
 </div>
+<p hidden id="blogID">{{blog.id}}</p>
 
 {{!-- View comments --}}
 <div>
@@ -27,12 +28,11 @@
 <h2>Add a new comment</h2>
 
 <div id="newCommentContainer">
-    <form id="newBlogForm">
-        <input type="hidden" id="blogId">
+    <form id="newCommentForm">
         <input type="text" placeholder="comment" id="commentInput">
 
         <button type="submit">Confirm</button>
     </form>
 </div>
 
-<script src="./js/comment.js"></script>
+<script src="/js/comment.js"></script>

@@ -1,8 +1,9 @@
 
 const router = require('express').Router();
-const {Blog} = require('../../models');
+const {Blog, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// edit a blog post
 router.put('/:id', withAuth, async (req, res) => {
     try {
         console.log('Message: ' + req.body)
@@ -23,6 +24,7 @@ router.put('/:id', withAuth, async (req, res) => {
 })
 
 
+//delete a blog post
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         console.log('Message: ' + req.body)
@@ -42,6 +44,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 })
 
+// make a new blog post
 router.post('/create', withAuth, async (req, res) => {
     const text = req.body;
     try {
@@ -57,9 +60,23 @@ router.post('/create', withAuth, async (req, res) => {
     }
 })
 
-// add a blog post
 //add a comment to a blog post
-// edit a blog
+router.post('/comment', withAuth, async (req,res) => {
+    try {
+        console.log("inside post route")
+        const newComment = await Comment.create({
+            text: req.body.text,
+            blog_id: req.body.blog,
+            user_id: req.session.user_id,
+        })
+        // console.log(newComment)
+        res.json(newComment)
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+});
 
 
 module.exports = router;

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const {User, Blog, Comment} = require('./../models');
 const withAuth = require('../utils/auth.js');
 
-
+// view your own published blogs
 router.get('/', withAuth, async (req, res) => {
     try {
         const blogData = await Blog.findAll({
@@ -40,6 +40,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     }
 });
 
+// create a new blog page
 router.get('/create', withAuth, (req, res) =>  {
     res.render('newBlog', {
         layout: 'dashboard'
@@ -47,8 +48,7 @@ router.get('/create', withAuth, (req, res) =>  {
 })
 
 // view a single blog
-router.get('/aBlog/:id', async (req, res) => {
-    console.log("you made it")
+router.get('/aBlog/:id', withAuth, async (req, res) => {
     try {
         // console.log("you made it")
         const blogData = await Blog.findByPk(req.params.id);
@@ -69,7 +69,7 @@ router.get('/aBlog/:id', async (req, res) => {
                 comments.push(comment);
                 // console.log(commentData[i].get({plain: true}))
             }
-            console.log(comments[0].name.dataValues.name)
+            // console.log(comments[0].name.dataValues.name)
             // get user id from blog and comments
             blog.user = await User.findByPk(blog.user_id)
             // console.log(blog.user.dataValues.name)
@@ -86,6 +86,14 @@ router.get('/aBlog/:id', async (req, res) => {
         res.redirect('/login');
     }
 })
+
+// post a comment
+router.get('/aBlog/comment/:id', withAuth, (req, res) => {
+    // takes blog id
+    // posts a comment to the database
+    // 
+
+});
 
 
 module.exports = router;
