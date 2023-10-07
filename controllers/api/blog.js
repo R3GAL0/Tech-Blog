@@ -80,5 +80,3 @@ router.post('/comment', withAuth, async (req,res) => {
 
 
 module.exports = router;
-
-// view a post -> see comments, add comment

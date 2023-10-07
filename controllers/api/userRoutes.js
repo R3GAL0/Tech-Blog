@@ -56,6 +56,7 @@ router.post('/login', async (req, res) => {
       }
   
       // Create session variables based on the logged in user
+      // set button to hidden?
       req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
@@ -67,6 +68,18 @@ router.post('/login', async (req, res) => {
       console.log(err)
       res.status(400).json(err);
     }
+
+})
+
+// logout
+router.get('/logout', async (req, res) => {
+  try {
+    req.session.destroy();
+    res.redirect('/login')
+  } catch (err) {
+    console.log(err)
+    res.status(400).json(err);
+  }
 
 })
 

@@ -13,12 +13,8 @@ const newBlog = async function (event) {
         }
     })
 
-    // reload page
+    // reload page to display new comment
     document.location.reload();
-    // replace location with single blog view for current blog
-    // aka reload the page
-    // document.location.replace('/dashboard')
-
 }
 
 document.querySelector('#newCommentForm').addEventListener('submit', newBlog);

@@ -16,7 +16,7 @@
     <nav id="main-nav">
       <button class="btn" id="/">Home</button>
       <button class="btn" id="/dashboard">Dashboard</button>
-    {{#if logged_in}}
+    {{#if session.logged_in}}
     {{!-- takes you to the logout page --}}
       <button class="btn" id="logout">Logout</button>
     {{else}}
@@ -34,9 +34,7 @@
   </footer>
 
   <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{/if}}
   <script src="/js/siteNav.js"></script>
 </body>
 
