@@ -19,6 +19,9 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    dateCreated: {
+      type: DataTypes.STRING,
+    }
   },
   {
     sequelize,

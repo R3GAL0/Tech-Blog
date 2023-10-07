@@ -1,1 +1,38 @@
-<h1>A single blog</h1>
+
+{{!-- view a blog --}}
+<div class="card">
+    <h2>{{blog.title}}</h2>
+    <div>
+        <p>{{blog.text}}</p>
+        <p>Created by: {{blog.user.dataValues.name}} </br>Created on: {{blog.dateCreated}}</p>
+    </div>
+    <div>
+        {{body}}
+    </div>
+</div>
+
+{{!-- View comments --}}
+<div>
+    <h2>Comments</h2>
+    {{#each comments as |comment|}}
+    <div class="card">
+        <p>{{comment.text}}</p>
+        <p>Created by: {{comment.name.dataValues.name}}</p>
+    </div>
+    {{/each}}
+</div>
+
+{{!-- Add a comment --}}
+
+<h2>Add a new comment</h2>
+
+<div id="newCommentContainer">
+    <form id="newBlogForm">
+        <input type="hidden" id="blogId">
+        <input type="text" placeholder="comment" id="commentInput">
+
+        <button type="submit">Confirm</button>
+    </form>
+</div>
+
+<script src="./js/comment.js"></script>

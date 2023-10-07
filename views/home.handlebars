@@ -2,7 +2,7 @@
     {{#each blogs as |blog|}}
     <div class="card">
         <h2>
-            <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+            <a href="/dashboard/aBlog/{{blog.id}}">{{blog.title}}</a>
         </h2>
         <div>
             <p>created by: {{blog.user.name}}</p>
@@ -12,4 +12,6 @@
         </div>
     </div>
     {{/each}}
+            <a href="/dashboard/aBlog">Blog test</a>
+            <a href="/dashboard/create">Blog create</a>
 </div>
