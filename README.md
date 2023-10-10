@@ -3,7 +3,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<a href='https://drive.google.com/file/d/1_QlRCQmsO9kd7ahW9oiReqbSPiTVDG8R/view?usp=drive_link'>Video</a>
+<a href='https://tech-blog12534-b3073f956948.herokuapp.com/'>Deployment</a>
 
 ## Description
 
